@@ -1,0 +1,88 @@
+# docker-compose.yml
+#
+# WHAT: Runs all four edge agents and the coordinator as five
+#       separate containers, all built from the same image,
+#       each configured with different environment variables.
+# WHY:  This replaces the FIVE MANUAL TERMINAL WINDOWS you've
+#       been using — one command now starts (or stops) the
+#       entire system. This is also the exact structure that
+#       maps to AWS later: each service here becomes one EC2
+#       instance's container.
+
+services:
+
+  node-a:
+    build: .
+    container_name: appcd-node-a
+    environment:
+      NODE_ID: "A"
+      N_FEATURES: "42"
+      APPCD_TOKEN: "dev-token-change-me"
+    command: uvicorn edge_agent.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./edge_agent/data:/app/edge_agent/data:ro
+
+  node-b:
+    build: .
+    container_name: appcd-node-b
+    environment:
+      NODE_ID: "B"
+      N_FEATURES: "42"
+      APPCD_TOKEN: "dev-token-change-me"
+    command: uvicorn edge_agent.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8002:8000"
+    volumes:
+      - ./edge_agent/data:/app/edge_agent/data:ro
+
+  node-c:
+    build: .
+    container_name: appcd-node-c
+    environment:
+      NODE_ID: "C"
+      N_FEATURES: "42"
+      APPCD_TOKEN: "dev-token-change-me"
+    command: uvicorn edge_agent.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8003:8000"
+    volumes:
+      - ./edge_agent/data:/app/edge_agent/data:ro
+
+  node-d:
+    build: .
+    container_name: appcd-node-d
+    environment:
+      NODE_ID: "D"
+      N_FEATURES: "42"
+      APPCD_TOKEN: "dev-token-change-me"
+    command: uvicorn edge_agent.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8004:8000"
+    volumes:
+      - ./edge_agent/data:/app/edge_agent/data:ro
+
+  coordinator:
+    build: .
+    container_name: appcd-coordinator
+    environment:
+      APPCD_TOKEN: "dev-token-change-me"
+      N_FEATURES: "42"
+      ROUNDS: "15"
+      # Note: these point to the other CONTAINERS by their
+      # service name, not localhost — Docker Compose gives
+      # every service a working DNS name automatically.
+      AGENT_A: "http://node-a:8000"
+      AGENT_B: "http://node-b:8000"
+      AGENT_C: "http://node-c:8000"
+      AGENT_D: "http://node-d:8000"
+    command: python -m coordinator.orchestrator
+    depends_on:
+      - node-a
+      - node-b
+      - node-c
+      - node-d
+    volumes:
+      - ./registry:/app/registry
+      - ./state.json:/app/state.json

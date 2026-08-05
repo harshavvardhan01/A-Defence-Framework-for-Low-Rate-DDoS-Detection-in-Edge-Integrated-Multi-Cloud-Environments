@@ -1,0 +1,1016 @@
+{
+  "rounds": [
+    {
+      "round": 1,
+      "status": "ok",
+      "macro_val": 87.87,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 72.8,
+        "B": 95.33,
+        "D": 95.47
+      },
+      "latency_s": {
+        "A": 2.06,
+        "B": 1.13,
+        "D": 1.05
+      },
+      "payload_kb": 1106.2,
+      "new_best": true
+    },
+    {
+      "round": 2,
+      "status": "ok",
+      "macro_val": 87.47,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 68.93,
+        "B": 96.93,
+        "D": 96.53
+      },
+      "latency_s": {
+        "A": 0.88,
+        "B": 0.84,
+        "D": 0.8
+      },
+      "payload_kb": 1137.5
+    },
+    {
+      "round": 3,
+      "status": "ok",
+      "macro_val": 83.24,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 54.53,
+        "B": 97.73,
+        "D": 97.47
+      },
+      "latency_s": {
+        "A": 0.64,
+        "B": 0.6,
+        "D": 0.62
+      },
+      "payload_kb": 1137.1
+    },
+    {
+      "round": 4,
+      "status": "ok",
+      "macro_val": 82.31,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 51.6,
+        "B": 97.87,
+        "D": 97.47
+      },
+      "latency_s": {
+        "A": 0.7,
+        "B": 0.7,
+        "D": 0.64
+      },
+      "payload_kb": 1137.4
+    },
+    {
+      "round": 5,
+      "status": "ok",
+      "macro_val": 82.04,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 51.6,
+        "B": 97.07,
+        "D": 97.47
+      },
+      "latency_s": {
+        "A": 0.67,
+        "B": 0.69,
+        "D": 0.64
+      },
+      "payload_kb": 1137.3
+    },
+    {
+      "round": 6,
+      "status": "ok",
+      "macro_val": 82.36,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 51.6,
+        "B": 98.0,
+        "D": 97.47
+      },
+      "latency_s": {
+        "A": 0.72,
+        "B": 0.72,
+        "D": 0.73
+      },
+      "payload_kb": 1137.3
+    },
+    {
+      "round": 7,
+      "status": "ok",
+      "macro_val": 83.96,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 56.0,
+        "B": 98.4,
+        "D": 97.47
+      },
+      "latency_s": {
+        "A": 0.76,
+        "B": 0.7,
+        "D": 0.7
+      },
+      "payload_kb": 1137.4
+    },
+    {
+      "round": 8,
+      "status": "ok",
+      "macro_val": 91.07,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 77.33,
+        "B": 98.4,
+        "D": 97.47
+      },
+      "latency_s": {
+        "A": 0.74,
+        "B": 0.68,
+        "D": 0.68
+      },
+      "payload_kb": 1137.3,
+      "new_best": true
+    },
+    {
+      "round": 9,
+      "status": "ok",
+      "macro_val": 93.11,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 83.47,
+        "B": 98.4,
+        "D": 97.47
+      },
+      "latency_s": {
+        "A": 0.69,
+        "B": 0.69,
+        "D": 0.63
+      },
+      "payload_kb": 1137.3,
+      "new_best": true
+    },
+    {
+      "round": 10,
+      "status": "ok",
+      "macro_val": 95.42,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 90.4,
+        "B": 98.4,
+        "D": 97.47
+      },
+      "latency_s": {
+        "A": 0.7,
+        "B": 0.69,
+        "D": 0.63
+      },
+      "payload_kb": 1137.5,
+      "new_best": true
+    },
+    {
+      "round": 11,
+      "status": "ok",
+      "macro_val": 96.8,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 94.53,
+        "B": 98.4,
+        "D": 97.47
+      },
+      "latency_s": {
+        "A": 0.67,
+        "B": 0.61,
+        "D": 0.61
+      },
+      "payload_kb": 1137.6,
+      "new_best": true
+    },
+    {
+      "round": 12,
+      "status": "ok",
+      "macro_val": 98.4,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 97.47
+      },
+      "latency_s": {
+        "A": 0.77,
+        "B": 0.77,
+        "D": 0.81
+      },
+      "payload_kb": 1137.3,
+      "new_best": true
+    },
+    {
+      "round": 13,
+      "status": "ok",
+      "macro_val": 98.4,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 97.47
+      },
+      "latency_s": {
+        "A": 0.67,
+        "B": 0.61,
+        "D": 0.61
+      },
+      "payload_kb": 1137.3,
+      "new_best": true
+    },
+    {
+      "round": 14,
+      "status": "ok",
+      "macro_val": 98.58,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.83,
+        "B": 0.79,
+        "D": 0.84
+      },
+      "payload_kb": 1137.3,
+      "new_best": true
+    },
+    {
+      "round": 15,
+      "status": "ok",
+      "macro_val": 98.58,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.64,
+        "B": 0.66,
+        "D": 0.62
+      },
+      "payload_kb": 1137.5
+    },
+    {
+      "round": 16,
+      "status": "ok",
+      "macro_val": 98.58,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.69,
+        "B": 0.65,
+        "D": 0.67
+      },
+      "payload_kb": 1137.5
+    },
+    {
+      "round": 17,
+      "status": "ok",
+      "macro_val": 98.58,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.74,
+        "B": 0.67,
+        "D": 0.63
+      },
+      "payload_kb": 1137.6
+    },
+    {
+      "round": 18,
+      "status": "ok",
+      "macro_val": 69.47,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 10.67
+      },
+      "latency_s": {
+        "A": 3.01,
+        "B": 2.74,
+        "D": 3.18
+      },
+      "payload_kb": 1137.6
+    },
+    {
+      "round": 19,
+      "status": "ok",
+      "macro_val": 69.47,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 10.67
+      },
+      "latency_s": {
+        "A": 0.68,
+        "B": 0.67,
+        "D": 0.61
+      },
+      "payload_kb": 1137.4
+    },
+    {
+      "round": 20,
+      "status": "ok",
+      "macro_val": 98.58,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.66,
+        "B": 0.62,
+        "D": 0.64
+      },
+      "payload_kb": 1137.4
+    },
+    {
+      "round": 21,
+      "status": "ok",
+      "macro_val": 98.58,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.62,
+        "B": 0.62,
+        "D": 0.62
+      },
+      "payload_kb": 1137.6
+    },
+    {
+      "round": 22,
+      "status": "ok",
+      "macro_val": 98.58,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.69,
+        "B": 0.69,
+        "D": 0.63
+      },
+      "payload_kb": 1137.5
+    },
+    {
+      "round": 23,
+      "status": "ok",
+      "macro_val": 98.58,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.74,
+        "B": 0.68,
+        "D": 0.67
+      },
+      "payload_kb": 1137.4
+    },
+    {
+      "round": 24,
+      "status": "ok",
+      "macro_val": 98.58,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.71,
+        "B": 0.67,
+        "D": 0.69
+      },
+      "payload_kb": 1137.6
+    },
+    {
+      "round": 25,
+      "status": "ok",
+      "macro_val": 98.58,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.64,
+        "B": 0.64,
+        "D": 0.65
+      },
+      "payload_kb": 1137.6
+    },
+    {
+      "round": 26,
+      "status": "ok",
+      "macro_val": 98.58,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.68,
+        "B": 0.73,
+        "D": 0.65
+      },
+      "payload_kb": 1137.6
+    },
+    {
+      "round": 27,
+      "status": "ok",
+      "macro_val": 98.58,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.76,
+        "B": 0.7,
+        "D": 0.65
+      },
+      "payload_kb": 1137.7
+    },
+    {
+      "round": 28,
+      "status": "ok",
+      "macro_val": 98.58,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.7,
+        "B": 0.71,
+        "D": 0.67
+      },
+      "payload_kb": 1137.5
+    },
+    {
+      "round": 29,
+      "status": "ok",
+      "macro_val": 98.62,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.53,
+        "D": 98.0
+      },
+      "latency_s": {
+        "A": 0.66,
+        "B": 0.67,
+        "D": 0.64
+      },
+      "payload_kb": 1137.7,
+      "new_best": true
+    },
+    {
+      "round": 30,
+      "status": "ok",
+      "macro_val": 69.47,
+      "reported": [
+        "A",
+        "B",
+        "D"
+      ],
+      "missing": [],
+      "per_node_val": {
+        "A": 99.33,
+        "B": 98.4,
+        "D": 10.67
+      },
+      "latency_s": {
+        "A": 0.71,
+        "B": 0.72,
+        "D": 0.68
+      },
+      "payload_kb": 1137.7
+    }
+  ],
+  "best": {
+    "round": 29,
+    "macro_val": 98.62,
+    "version": 29
+  },
+  "serving_version": 28,
+  "deployments": [
+    {
+      "version": 1,
+      "round": 1,
+      "canary_nodes": [
+        "A",
+        "D",
+        "B"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 87.42% vs serving 35.02% within 2.0pp"
+    },
+    {
+      "version": 2,
+      "round": 2,
+      "canary_nodes": [
+        "A",
+        "D",
+        "B"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 87.56% vs serving 86.76% within 2.0pp"
+    },
+    {
+      "version": 3,
+      "round": 3,
+      "canary_nodes": [
+        "A",
+        "D",
+        "B"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 82.84% vs serving 82.84% within 2.0pp"
+    },
+    {
+      "version": 4,
+      "round": 4,
+      "canary_nodes": [
+        "A",
+        "B",
+        "D"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 81.87% vs serving 81.87% within 2.0pp"
+    },
+    {
+      "version": 5,
+      "round": 5,
+      "canary_nodes": [
+        "D",
+        "B",
+        "A"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 81.87% vs serving 81.87% within 2.0pp"
+    },
+    {
+      "version": 6,
+      "round": 6,
+      "canary_nodes": [
+        "D",
+        "A",
+        "B"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 82.27% vs serving 81.87% within 2.0pp"
+    },
+    {
+      "version": 7,
+      "round": 7,
+      "canary_nodes": [
+        "B",
+        "A",
+        "D"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 82.27% vs serving 82.27% within 2.0pp"
+    },
+    {
+      "version": 8,
+      "round": 8,
+      "canary_nodes": [
+        "A",
+        "B",
+        "D"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 83.87% vs serving 82.27% within 2.0pp"
+    },
+    {
+      "version": 9,
+      "round": 9,
+      "canary_nodes": [
+        "B",
+        "D",
+        "A"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 86.98% vs serving 86.04% within 2.0pp"
+    },
+    {
+      "version": 10,
+      "round": 10,
+      "canary_nodes": [
+        "D",
+        "A",
+        "B"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 89.07% vs serving 86.98% within 2.0pp"
+    },
+    {
+      "version": 11,
+      "round": 11,
+      "canary_nodes": [
+        "B",
+        "D",
+        "A"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 94.09% vs serving 91.07% within 2.0pp"
+    },
+    {
+      "version": 12,
+      "round": 12,
+      "canary_nodes": [
+        "B",
+        "D",
+        "A"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 94.09% vs serving 94.09% within 2.0pp"
+    },
+    {
+      "version": 13,
+      "round": 13,
+      "canary_nodes": [
+        "B",
+        "D",
+        "A"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 95.78% vs serving 95.47% within 2.0pp"
+    },
+    {
+      "version": 14,
+      "round": 14,
+      "canary_nodes": [
+        "A",
+        "D",
+        "B"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.44% vs serving 98.40% within 2.0pp"
+    },
+    {
+      "version": 15,
+      "round": 15,
+      "canary_nodes": [
+        "A",
+        "D",
+        "B"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.36% vs serving 98.36% within 2.0pp"
+    },
+    {
+      "version": 16,
+      "round": 16,
+      "canary_nodes": [
+        "B",
+        "D",
+        "A"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.40% vs serving 98.40% within 2.0pp"
+    },
+    {
+      "version": 17,
+      "round": 17,
+      "canary_nodes": [
+        "D",
+        "B",
+        "A"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.40% vs serving 98.40% within 2.0pp"
+    },
+    {
+      "version": 18,
+      "round": 18,
+      "canary_nodes": [
+        "A",
+        "D",
+        "B"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.40% vs serving 98.58% within 2.0pp"
+    },
+    {
+      "version": 19,
+      "round": 19,
+      "canary_nodes": [
+        "D",
+        "A",
+        "B"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.58% vs serving 98.40% within 2.0pp"
+    },
+    {
+      "version": 20,
+      "round": 20,
+      "canary_nodes": [
+        "D",
+        "A",
+        "B"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.58% vs serving 98.58% within 2.0pp"
+    },
+    {
+      "version": 21,
+      "round": 21,
+      "canary_nodes": [
+        "A",
+        "B",
+        "D"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.58% vs serving 98.58% within 2.0pp"
+    },
+    {
+      "version": 22,
+      "round": 22,
+      "canary_nodes": [
+        "A",
+        "D",
+        "B"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.58% vs serving 98.58% within 2.0pp"
+    },
+    {
+      "version": 23,
+      "round": 23,
+      "canary_nodes": [
+        "B",
+        "A",
+        "D"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.58% vs serving 98.58% within 2.0pp"
+    },
+    {
+      "version": 24,
+      "round": 24,
+      "canary_nodes": [
+        "D",
+        "B",
+        "A"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.58% vs serving 98.58% within 2.0pp"
+    },
+    {
+      "version": 25,
+      "round": 25,
+      "canary_nodes": [
+        "B",
+        "A",
+        "D"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.58% vs serving 98.58% within 2.0pp"
+    },
+    {
+      "version": 26,
+      "round": 26,
+      "canary_nodes": [
+        "D",
+        "A",
+        "B"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.58% vs serving 98.58% within 2.0pp"
+    },
+    {
+      "version": 27,
+      "round": 27,
+      "canary_nodes": [
+        "D",
+        "B",
+        "A"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.58% vs serving 98.58% within 2.0pp"
+    },
+    {
+      "version": 28,
+      "round": 28,
+      "canary_nodes": [
+        "A",
+        "D",
+        "B"
+      ],
+      "decision": "promoted",
+      "reason": "candidate 98.58% vs serving 98.58% within 2.0pp"
+    },
+    {
+      "version": 29,
+      "round": 29,
+      "canary_nodes": [
+        "D",
+        "A",
+        "B"
+      ],
+      "decision": "rejected",
+      "reason": "candidate 69.47% regressed 29.11pp vs serving 98.58%"
+    },
+    {
+      "version": 30,
+      "round": 30,
+      "canary_nodes": [
+        "D",
+        "B",
+        "A"
+      ],
+      "decision": "rejected",
+      "reason": "candidate 69.47% regressed 29.11pp vs serving 98.58%"
+    }
+  ],
+  "node_status": {
+    "A": "ok",
+    "B": "ok",
+    "D": "ok"
+  }
+}
