@@ -1,9 +1,7 @@
-# appcd/serialization.py
-#
-# WHAT: Converts model weights (lists of numpy arrays) to and
+# Converts model weights (lists of numpy arrays) to and
 #       from plain Python lists so they can be sent as JSON
 #       over HTTP.
-# WHY:  FastAPI/JSON cannot transport numpy arrays directly —
+#  FastAPI/JSON cannot transport numpy arrays directly —
 #       every weight array must become a nested Python list
 #       before it crosses the network, and convert back again
 #       on the receiving end.

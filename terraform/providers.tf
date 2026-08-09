@@ -1,10 +1,8 @@
-# providers.tf
-#
-# WHAT: Declares AWS as our infrastructure provider, and sets
+# Declares AWS as our infrastructure provider, and sets
 #       up TWO separate provider configurations — one per
 #       region — since Terraform needs to know explicitly
 #       which region each resource belongs to.
-# WHY:  Your architecture is deliberately two-region. Terraform
+#  Your architecture is deliberately two-region. Terraform
 #       represents "a second region" as a second labeled
 #       provider block (an "alias"), not a special resource
 #       type — this is the standard way Terraform expresses

@@ -1,10 +1,8 @@
-# docker-compose.yml
-#
-# WHAT: Runs all four edge agents and the coordinator as five
+
+# Runs all four edge agents and the coordinator as five
 #       separate containers, all built from the same image,
 #       each configured with different environment variables.
-# WHY:  This replaces the FIVE MANUAL TERMINAL WINDOWS you've
-#       been using — one command now starts (or stops) the
+# This replaces the FIVE MANUAL TERMINAL WINDOWS — one command now starts (or stops) the
 #       entire system. This is also the exact structure that
 #       maps to AWS later: each service here becomes one EC2
 #       instance's container.

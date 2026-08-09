@@ -1,17 +1,9 @@
-# coordinator/dynamodb_writer.py
-#
-# WHAT: Writes one round's summary to the DynamoDB round-state
+# Writes one round's summary to the DynamoDB round-state
 #       table, as a durable alternative to the local JSON file.
-# WHY:  The local state.json is lost if the coordinator's disk
+#The local state.json is lost if the coordinator's disk
 #       is lost. This makes round history durable independent
-#       of any single instance -- the production target already
-#       named in the Design chapter's control-plane table.
+#       of any single instance
 #
-# DESIGN NOTE: This is ADDITIVE. state.flush() continues to
-# write the local JSON file exactly as before -- this does not
-# replace it, only mirrors the SAME entry dict already
-# constructed in orchestrator.py, so it can never drift out of
-# sync with what the dashboard reads.
 
 import os
 import time
@@ -33,12 +25,7 @@ def _get_table():
 
 
 def _to_dynamodb_safe(obj):
-    """DynamoDB's boto3 resource API rejects native Python floats
-    (requires Decimal) and cannot store empty sets -- this
-    recursively converts a normal Python dict (like `entry`)
-    into a form DynamoDB will actually accept, without requiring
-    orchestrator.py's existing code to change how it builds
-    `entry` for the local JSON file."""
+
     if isinstance(obj, float):
         return Decimal(str(obj))
     if isinstance(obj, dict):
@@ -49,13 +36,7 @@ def _to_dynamodb_safe(obj):
 
 
 def write_round_state(entry: dict, serving_version: int):
-    """
-    Mirrors ONE round's entry dict (the same dict orchestrator.py
-    already appends to state.rounds and writes to the local JSON
-    file) into DynamoDB. Silently no-ops if DYNAMODB_TABLE is not
-    set, so this is safe to call unconditionally without breaking
-    any deployment that hasn't enabled this feature.
-    """
+
     table = _get_table()
     if table is None:
         return
@@ -69,6 +50,4 @@ def write_round_state(entry: dict, serving_version: int):
     except Exception as e:
         print(f"[WARNING] DynamoDB write failed for round "
               f"{entry.get('round', '?')}: {e}")
-        # Deliberately non-fatal: DynamoDB is a durability MIRROR,
-        # not a dependency -- the local JSON file (via state.flush())
-        # remains the source of truth the rest of the system reads from.
+        

@@ -1,8 +1,6 @@
-# ami.tf
-#
-# WHAT: Dynamically finds the latest Amazon Linux 2023 image
+# Dynamically finds the latest Amazon Linux 2023 image
 #       ID in each region.
-# WHY:  AMI IDs are region-specific and change whenever Amazon
+#  AMI IDs are region-specific and change whenever Amazon
 #       releases updates — hardcoding one risks it becoming
 #       invalid or outdated. This always fetches whatever is
 #       current at the moment you run Terraform.

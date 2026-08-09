@@ -1,10 +1,5 @@
-# appcd/evaluation.py
-#
-# WHAT: Metric computation shared by every service.
-# WHY:  Uses real sklearn precision_score/recall_score
-#       directly — this fixes the mislabelled "precision"
-#       bug found during the v2 review, where F1-score was
-#       accidentally being reported as precision.
+# Metric computation shared by every service.
+# Uses real sklearn precision_score/recall_score
 
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, confusion_matrix
@@ -12,11 +7,7 @@ from sklearn.metrics import (
 
 
 def compute_metrics(y_true, y_pred):
-    """
-    Returns a dictionary of accuracy, precision, recall, and
-    false-positive rate (FPR) — the operator-facing security
-    metrics, not just accuracy alone.
-    """
+
     accuracy = accuracy_score(y_true, y_pred) * 100
     precision = precision_score(y_true, y_pred, zero_division=0) * 100
     recall = recall_score(y_true, y_pred, zero_division=0) * 100

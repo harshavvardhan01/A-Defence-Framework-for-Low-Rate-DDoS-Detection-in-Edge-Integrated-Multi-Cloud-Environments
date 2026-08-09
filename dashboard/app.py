@@ -1,106 +1,161 @@
 # dashboard/app.py
 #
-# WHAT: Reads state.json (written by the coordinator after
-#       every round) and renders it as a live dashboard —
-#       accuracy trend, per-node latency, decision history.
-# WHY:  This is what makes the demo "land in a call" rather
-#       than being a wall of terminal logs — the exact same
-#       data, but visual and immediately readable by someone
-#       who wasn't following the logs line by line.
+# WHAT: The landing page for the presentation dashboard.
+#       Gives the thesis's one-paragraph story and headline
+#       numbers up front, then points to the two detail pages
+#       (Live Federation, Key Findings) in the sidebar.
+# WHY:  A presentation needs an entry point that works even
+#       before anyone clicks anything -- the story should be
+#       readable in the first 10 seconds on screen.
 
-import json
-import os
-import time
-
-import pandas as pd
 import streamlit as st
 
-st.set_page_config(page_title="APPCD Federation Dashboard", layout="wide")
+st.set_page_config(
+    page_title="APPCD — Federated LR-DDoS Detection",
+    page_icon="🛡️",
+    layout="wide",
+)
 
-STATE_FILE = os.environ.get("STATE_FILE", "state.json")
+# ── Consistent colour palette, matching the thesis's own figures ──
+TEAL = "#0E9384"      # federated / positive result
+ORANGE = "#B45309"    # standalone / baseline
+PURPLE = "#6A4C93"    # centralised / infrastructure
 
-st.title("APPCD — Federated LR-DDoS Detection")
-st.caption("Live view of federated training across distributed edge nodes")
+st.markdown(
+    f"""
+    <style>
+    .metric-card {{
+        background-color: #F7F8FA;
+        border: 1px solid #E1E4E8;
+        border-radius: 8px;
+        padding: 1.2rem;
+        text-align: center;
+    }}
+    .metric-value {{
+        font-size: 2.1rem;
+        font-weight: 700;
+        color: {TEAL};
+    }}
+    .metric-label {{
+        font-size: 0.85rem;
+        color: #6B7280;
+        margin-top: 0.3rem;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
-# ── Load state ────────────────────────────────────────────
-try:
-    with open(STATE_FILE) as f:
-        state = json.load(f)
-except FileNotFoundError:
-    st.warning(f"No state file found at '{STATE_FILE}' — "
-               f"the coordinator hasn't produced any results yet.")
-    st.stop()
+st.title("🛡️ APPCD — Federated Detection for Low-Rate DDoS")
+st.caption(
+    "A distributed collaborative defence framework, addressing future work "
+    "identified by Zhou et al. (2025), deployed as production-representative "
+    "cloud infrastructure across two AWS regions."
+)
 
-rounds = [r for r in state.get("rounds", []) if r.get("status") == "ok"]
+st.divider()
 
-if not rounds:
-    st.warning("state.json exists but contains no completed rounds yet.")
-    st.stop()
+# ── The one-paragraph story ────────────────────────────────
+st.markdown(
+    """
+    ### The Question
 
-# ── Top-line metrics ──────────────────────────────────────
+    Zhou et al. (2025) built a single-agent moving-target-defence system for
+    low-rate DDoS mitigation — strong results, but confined to one node,
+    observing one traffic distribution. They explicitly name **distributed
+    collaborative defence** as unaddressed future work.
+
+    **This project implements and empirically validates that framework** —
+    federated detection across two genuinely independent real-world traffic
+    sources, partitioned across three heterogeneous nodes, deployed as real
+    infrastructure across two AWS regions, not simulated on one machine.
+    """
+)
+
+st.divider()
+
+# ── Headline numbers ────────────────────────────────────────
+st.subheader("Headline Results")
+
 col1, col2, col3, col4 = st.columns(4)
-col1.metric("Rounds completed", len(state["rounds"]))
-col2.metric("Best macro validation",
-            f"{state['best']['macro_val']:.2f}%",
-            f"round {state['best']['round']}")
-col3.metric("Currently serving", f"v{state['serving_version']}")
-col4.metric("Nodes in last round",
-            ", ".join(sorted(rounds[-1]["reported"])))
+
+with col1:
+    st.markdown(
+        f"""<div class="metric-card">
+        <div class="metric-value">+16.30pp</div>
+        <div class="metric-label">Macro accuracy improvement<br>over best standalone agent</div>
+        </div>""",
+        unsafe_allow_html=True,
+    )
+
+with col2:
+    st.markdown(
+        f"""<div class="metric-card">
+        <div class="metric-value">96.95%</div>
+        <div class="metric-label">Of the centralised-training<br>ceiling recovered, zero data shared</div>
+        </div>""",
+        unsafe_allow_html=True,
+    )
+
+with col3:
+    st.markdown(
+        f"""<div class="metric-card">
+        <div class="metric-value">2 regions</div>
+        <div class="metric-label">Real AWS infrastructure<br>Dublin + N. Virginia</div>
+        </div>""",
+        unsafe_allow_html=True,
+    )
+
+with col4:
+    st.markdown(
+        f"""<div class="metric-card">
+        <div class="metric-value">p&lt;0.0001</div>
+        <div class="metric-label">Statistical significance<br>t=31.08, 5 independent seeds</div>
+        </div>""",
+        unsafe_allow_html=True,
+    )
+
+st.write("")
+st.info(
+    "👈 **Use the sidebar** to explore: **Live Federation** shows a real "
+    "training run's round-by-round progress; **Key Findings** presents the "
+    "complete, final experimental results supporting every claim above."
+)
 
 st.divider()
 
-# ── Accuracy trend ────────────────────────────────────────
-st.subheader("Macro validation accuracy by round")
-acc_df = pd.DataFrame(
-    {"round": [r["round"] for r in rounds],
-     "macro_val": [r["macro_val"] for r in rounds]}
-).set_index("round")
-st.line_chart(acc_df)
+# ── What was actually built ─────────────────────────────────
+st.subheader("What Was Built, Not Just Simulated")
 
-# ── Per-node latency — the cross-region evidence ──────────
-st.subheader("Per-node round latency (seconds)")
-st.caption("A node in a different region should show "
-           "consistently higher latency — real geographic distance.")
-latency_rows = [r["latency_s"] for r in rounds]
-lat_df = pd.DataFrame(latency_rows, index=[r["round"] for r in rounds])
-st.line_chart(lat_df)
-
-# ── Per-node accuracy comparison ──────────────────────────
-st.subheader("Per-node validation accuracy by round")
-node_acc_rows = [r["per_node_val"] for r in rounds]
-node_df = pd.DataFrame(node_acc_rows, index=[r["round"] for r in rounds])
-st.line_chart(node_df)
-
-# ── Bandwidth evidence ─────────────────────────────────────
-st.subheader("Payload size per round (KB)")
-payload_df = pd.DataFrame(
-    {"round": [r["round"] for r in rounds],
-     "payload_kb": [r["payload_kb"] for r in rounds]}
-).set_index("round")
-st.bar_chart(payload_df)
-avg_payload = payload_df["payload_kb"].mean()
-st.caption(f"Average payload: {avg_payload:.0f} KB per round across all nodes")
-
-# ── Model release history — the canary decisions ──────────
-st.subheader("Model release history (canary decisions)")
-if state.get("deployments"):
-    deploy_df = pd.DataFrame(state["deployments"])
-    st.dataframe(deploy_df, use_container_width=True)
-
-    promoted = sum(1 for d in state["deployments"] if d["decision"] == "promoted")
-    rejected = sum(1 for d in state["deployments"] if d["decision"] == "rejected")
-    st.caption(f"{promoted} promoted, {rejected} rejected out of "
-               f"{len(state['deployments'])} candidate models evaluated")
-else:
-    st.text("No model releases recorded yet.")
-
-# ── Node health at startup ─────────────────────────────────
-st.subheader("Node health (last check)")
-if state.get("node_status"):
-    st.json(state["node_status"])
-
-st.divider()
-st.caption(f"Auto-refreshing every 5 seconds \u2014 last loaded at "
-          f"{time.strftime('%H:%M:%S')}")
-time.sleep(5)
-st.rerun()
+b1, b2, b3 = st.columns(3)
+with b1:
+    st.markdown(
+        """
+        **Real infrastructure**
+        - Terraform-provisioned, two AWS regions
+        - Docker containers, one image, four roles
+        - IAM instance roles, no embedded credentials
+        - GitHub Actions CI/CD, independently verified
+        """
+    )
+with b2:
+    st.markdown(
+        """
+        **Real evaluation**
+        - Two independently captured real datasets
+        - 5-seed statistical validation (paired t-test)
+        - A real induced node failure on live infrastructure
+        - A real canary rejection, logged and numeric
+        """
+    )
+with b3:
+    st.markdown(
+        """
+        **Real honesty**
+        - Every cost disclosed: FPR, latency, complexity
+        - A genuine training-trajectory limitation reported,
+          not hidden
+        - Node B's result independently checked against a
+          scaling-artefact hypothesis before being trusted
+        """
+    )

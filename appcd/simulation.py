@@ -1,13 +1,3 @@
-# appcd/simulation.py
-#
-# WHAT: Same corrected logic as before, now with the damage/
-#       recovery/threshold constants exposed as parameters
-#       instead of hardcoded — so their sensitivity can be
-#       tested explicitly, rather than trusted from one run.
-# WHY:  A single arbitrary set of constants cannot be
-#       defended in a viva. Showing the finding holds
-#       DIRECTIONALLY across multiple reasonable parameter
-#       sets is what makes it defensible.
 
 class ServiceState:
     def __init__(self, attack_damage_scale=1.0, recovery_rate=0.3,

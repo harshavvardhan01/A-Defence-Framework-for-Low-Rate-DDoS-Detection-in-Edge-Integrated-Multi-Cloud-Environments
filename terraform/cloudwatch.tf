@@ -1,12 +1,10 @@
-# cloudwatch.tf
-#
-# WHAT: A CloudWatch Log Group to receive coordinator and
+# A CloudWatch Log Group to receive coordinator and
 #       edge-agent container output, plus an alarm watching
-#       for the specific ERROR-level pattern your kill-node
+#       for the specific ERROR-level pattern for kill-node
 #       test already produces ("node X FAILED this round").
-# WHY:  Centralised, durable logging independent of any single
+#Centralised, durable logging independent of any single
 #       instance's disk or docker logs buffer -- and a real,
-#       AWS-native confirmation of the same failure event your
+#       AWS-native confirmation of the same failure event for
 #       application-level fault-tolerance test already proves.
 
 resource "aws_cloudwatch_log_group" "appcd_logs" {

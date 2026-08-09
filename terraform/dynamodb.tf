@@ -1,9 +1,7 @@
-# dynamodb.tf
-#
-# WHAT: A DynamoDB table storing one item per federated round,
+#  A DynamoDB table storing one item per federated round,
 #       keyed by round number, as a durable alternative to the
 #       coordinator's local JSON state file.
-# WHY:  The local file is lost if the coordinator's disk is
+# The local file is lost if the coordinator's disk is
 #       lost. DynamoDB persists independently of any single
 #       instance, matching the production design target
 #       already named in Table 1 of the Design chapter.

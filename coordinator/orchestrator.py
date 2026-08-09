@@ -1,16 +1,11 @@
-# coordinator/orchestrator.py
-#
-# WHAT: The coordinator. Runs N federated rounds, tolerates node
+# The coordinator. Runs N federated rounds, tolerates node
 #       failures via a quorum policy, aggregates with
 #       fedbn_average, and gates PROMOTION (not training) through
 #       your random-rotating canary check.
-# WHY:  Training and serving are DECOUPLED — every round trains
+# Training and serving are DECOUPLED — every round trains
 #       on the newly aggregated candidate regardless of the
 #       canary decision. Only "promoted/serving" status depends
-#       on passing canary. This matches what your v3 thesis
-#       experiments actually showed: training-level rollback (the
-#       old VGCR) was net-negative; a separate release gate is
-#       the correct design.
+#       on passing canary.
 
 import asyncio
 import json

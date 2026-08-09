@@ -1,17 +1,12 @@
-# coordinator/config.py
-#
-# WHAT: All coordinator settings, overridable via environment
+# All coordinator settings, overridable via environment
 #       variables.
-# WHY:  When this moves to Docker/AWS, every value here gets
+#  When this moves to Docker/AWS, every value here gets
 #       supplied differently per deployment (real IPs instead of
 #       localhost) without touching any code.
 
 import os
 
-# Which nodes actually exist in THIS deployment — lets us run
-# with fewer than 4 nodes (e.g. Node C stays local-only,
-# never deployed to AWS) without pretending an unreachable
-# localhost URL represents a real, temporarily-down node.
+
 ACTIVE_NODES = os.environ.get("ACTIVE_NODES", "A,B,C,D").split(",")
 
 NODE_URLS = {
@@ -31,15 +26,14 @@ N_ROUNDS = int(os.environ.get("ROUNDS", "5"))
 ROUND_TIMEOUT_S = float(os.environ.get("ROUND_TIMEOUT_S", "60"))
 HEALTH_TIMEOUT_S = float(os.environ.get("HEALTH_TIMEOUT_S", "10"))
 
-# Fault tolerance: a round is valid if at least this many of the
-# 4 nodes report. 3 = the system survives ONE dead node per round.
+
 MIN_QUORUM = int(os.environ.get("MIN_QUORUM", "3"))
 
-# Canary policy — YOUR rotating random subset design.
+# Canary policy — rotating random subset design.
 CANARY_SIZE = int(os.environ.get("CANARY_SIZE", "2"))
 PROMOTION_TOLERANCE_PP = float(os.environ.get("PROMOTION_TOLERANCE_PP", "2.0"))
 
 REGISTRY_DIR = os.environ.get("REGISTRY_DIR", "registry")
-S3_BUCKET = os.environ.get("S3_BUCKET", "")   # empty = local only
+S3_BUCKET = os.environ.get("S3_BUCKET", "")   
 DYNAMODB_TABLE = os.environ.get("DYNAMODB_TABLE", "")
 STATE_FILE = os.environ.get("STATE_FILE", "state.json")

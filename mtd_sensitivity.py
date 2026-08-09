@@ -1,11 +1,8 @@
-# mtd_sensitivity.py
-#
-# WHAT: Runs the undefended-vs-defended comparison across
+
+#Runs the undefended-vs-defended comparison across
 #       THREE different, explicitly labelled parameter sets,
 #       to check whether the QoS/security findings hold
 #       directionally, not just under one chosen configuration.
-# WHY:  A single-parameter-set result cannot survive "how did
-#       you calibrate this" in a viva. This can.
 import os
 import numpy as np
 import requests
@@ -23,9 +20,6 @@ data = np.load("edge_agent/data/node_A.npz")
 X_val, y_val = data["X_val"], data["y_val"]
 N = len(X_val)
 
-# Pre-fetch every flow's action ONCE — reused across all three
-# parameter sets so we're testing SENSITIVITY, not re-running
-# inference three times unnecessarily.
 print(f"Classifying {N} flows once, reusing across parameter sets...")
 actions = []
 for i in range(N):

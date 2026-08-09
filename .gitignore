@@ -7,3 +7,5 @@ terraform/*.tfstate.backup
 terraform/terraform.tfvars
 terraform/.terraform.lock.hcl
 appcd_key
+
+registry/

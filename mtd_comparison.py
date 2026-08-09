@@ -1,37 +1,11 @@
-# mtd_comparison.py
-#
-# WHAT: A fair, isolated comparison of the STANDALONE model
+
+# A fair, isolated comparison of the STANDALONE model
 #       vs. the FEDERATED model, both trained locally and
 #       evaluated on POOLED validation data from ALL THREE
 #       real nodes (A, B, D) -- not just one node's own data
 #       -- through the identical classification-and-response
 #       pipeline. The ONLY variable that differs between the
 #       two conditions is how the model was trained.
-#
-# WHY POOLED, MULTI-NODE EVALUATION (not just Node A's data):
-#   An earlier version of this script tested both models only
-#   against Node A's own validation split. That produced
-#   IDENTICAL results for both conditions, because a model
-#   trained directly on Node A's distribution fits Node A's
-#   own held-out data well almost by definition -- it never
-#   exercised the actual value federation provides, which is
-#   generalising ACROSS heterogeneous environments (Node B's
-#   CIC-DDoS2019 traffic, Node D's skewed BCCC traffic) that
-#   the standalone model never saw during training. Testing
-#   on pooled, multi-node data is what makes this comparison
-#   meaningful, and matches the same methodology already used
-#   for the RQ1 standalone-vs-federated result.
-#
-# WHY THIS REPLACES THE ORIGINAL VERSION (pre-dating both fixes):
-#   The original version compared THIS system's live numbers
-#   against numbers PRINTED in Zhou et al.'s paper -- two
-#   different environments, two different datasets, two
-#   different simulations. That is not a valid comparison
-#   (see supervisor feedback, Table 7). This version compares
-#   two conditions both measured HERE, on the SAME machine,
-#   SAME pooled data, SAME code -- so any difference in the
-#   results is attributable to the one thing that changed:
-#   standalone vs. federated training.
 
 import time
 import numpy as np
@@ -41,7 +15,7 @@ from appcd.evaluation import compute_metrics as compute_ml_metrics
 from appcd.response import decide_action
 
 N_FEATURES = 42
-NODE_IDS = ["A", "B", "D"]  # test against ALL real, active nodes' data
+NODE_IDS = ["A", "B", "D"] 
 
 STANDALONE_WEIGHTS = "standalone_model.weights.h5"
 FEDERATED_WEIGHTS = "federated_model.weights.h5"
@@ -86,7 +60,7 @@ def evaluate_condition(model, X_val, y_val, label):
     """
     print(f"\nEvaluating {label} (pooled, all nodes)...")
 
-    # ── Real ML metrics: identical methodology to RQ1 ────────
+    
     predictions = (model.predict(X_val.astype(np.float32), verbose=0) >= 0.5
                    ).astype(int).flatten()
     ml_metrics = compute_ml_metrics(y_val, predictions)
@@ -107,9 +81,7 @@ def evaluate_condition(model, X_val, y_val, label):
         action_counts[action] += 1
         latencies_ms.append(elapsed_ms)
 
-    # Discard the first measurement (cold-start / graph-tracing
-    # overhead, documented in Section 5.5) when reporting
-    # steady-state latency.
+    
     steady_state_latencies = latencies_ms[1:] if len(latencies_ms) > 1 else latencies_ms
     mean_latency = sum(steady_state_latencies) / len(steady_state_latencies)
 
@@ -127,13 +99,7 @@ def evaluate_condition(model, X_val, y_val, label):
 
 
 def evaluate_per_node(model, per_node_data, label):
-    """
-    Breaks the same model's performance down BY NODE, so the
-    report can show WHERE a generalisation gap appears -- e.g.
-    a standalone model scoring well on its own node but poorly
-    on nodes it never trained on, versus a federated model
-    scoring consistently across all three.
-    """
+    
     print(f"\n  Per-node breakdown -- {label}:")
     results = {}
     for node_id, (X_n, y_n) in per_node_data.items():
@@ -200,7 +166,7 @@ def main():
     evaluate_per_node(federated_model, per_node_data,
                        "FEDERATED (trained via FedBN + FedProx)")
 
-    # ── Side-by-side summary table, plain text, no colour ────
+    # ── Side-by-side summary table ────
     print("\n" + "=" * 65)
     print("SUMMARY -- STANDALONE vs. FEDERATED (pooled, same pipeline)")
     print("=" * 65)

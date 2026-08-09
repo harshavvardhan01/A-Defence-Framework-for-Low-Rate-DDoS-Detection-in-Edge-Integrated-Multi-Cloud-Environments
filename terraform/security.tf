@@ -1,9 +1,7 @@
-# security.tf
-#
-# WHAT: Firewall rules (AWS calls these "security groups"),
+# Firewall rules (AWS calls these "security groups"),
 #       duplicated once per region since a security group is
 #       always scoped to a single region's network.
-# WHY:  Without these, EITHER nothing can reach your instances
+#Without these, EITHER nothing can reach your instances
 #       at all (too restrictive, breaks everything) OR
 #       everything on the internet can reach them (way too
 #       permissive, a real security problem). This is the

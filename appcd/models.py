@@ -1,9 +1,4 @@
-# appcd/models.py
-#
-# WHAT: Defines the MLP architecture used by every node.
-# WHY:  This is the exact model from the Colab notebook,
-#       extracted so it can be imported by any service —
-#       not just run inside a notebook cell.
+#  Defines the MLP architecture used by every node.
 
 import tensorflow as tf
 from tensorflow.keras.models import Sequential

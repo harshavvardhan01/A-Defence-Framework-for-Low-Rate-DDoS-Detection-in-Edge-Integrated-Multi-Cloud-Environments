@@ -1,9 +1,7 @@
-# edge_agent/main.py
-#
-# WHAT: The edge node's complete web service — health check,
+# The edge node's complete web service — health check,
 #       federated training round, canary/deploy check, and
 #       real-time classify-and-respond.
-# WHY:  This is the single, complete file for this node's
+# This is the single, complete file for this node's
 #       service. Every endpoint built this term lives here.
 
 import os

@@ -1,6 +1,4 @@
-# outputs.tf
-#
-# WHAT: Prints the important values after terraform apply
+# Prints the important values after terraform apply
 #       finishes — no need to hunt through the AWS Console.
 
 output "coordinator_ip" {

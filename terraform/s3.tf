@@ -1,10 +1,8 @@
-# s3.tf
-#
-# WHAT: An S3 bucket mirroring the coordinator's local model
+# An S3 bucket mirroring the coordinator's local model
 #       registry, plus a data source resolving the current
 #       AWS account ID to guarantee a globally unique bucket
 #       name without guesswork.
-# WHY:  registry.py already has a working S3 upload code path,
+# registry.py already has a working S3 upload code path,
 #       written but never exercised in the deployed evaluation
 #       because S3_BUCKET was never set. This step enables it.
 

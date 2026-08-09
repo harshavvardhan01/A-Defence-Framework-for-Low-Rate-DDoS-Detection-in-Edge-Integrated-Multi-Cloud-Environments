@@ -1,8 +1,6 @@
-# elastic_ips.tf
-#
-# WHAT: A permanent public IP for each instance, unaffected
+# A permanent public IP for each instance, unaffected
 #       by stop/start cycles.
-# WHY:  Without these, every reboot would assign a NEW random
+#  Without these, every reboot would assign a NEW random
 #       public IP, breaking the coordinator's configured
 #       AGENT_* URLs and requiring manual reconfiguration —
 #       exactly the "5-minute ritual" problem flagged earlier.

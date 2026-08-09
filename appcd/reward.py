@@ -1,9 +1,7 @@
-# appcd/reward.py
-#
-# WHAT: Scores a completed ServiceState run into security %,
+# Scores a completed ServiceState run into security %,
 #       QoS %, and resource cost — same four-term structure
 #       as Zhou et al.'s Eq. 4.
-# WHY:  Turns raw simulation numbers into the two percentages
+# Turns raw simulation numbers into the two percentages
 #       directly comparable to the baseline paper.
 
 def compute_metrics(state):

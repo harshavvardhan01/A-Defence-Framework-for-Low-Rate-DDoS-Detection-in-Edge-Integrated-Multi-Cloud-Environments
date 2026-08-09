@@ -1,6 +1,5 @@
-# test_package.py
-#
-# WHAT: A smoke test — confirms the extracted appcd package
+
+# A smoke test — confirms the extracted appcd package
 #       works correctly OUTSIDE Colab, using synthetic random
 #       data. This does NOT test accuracy on real BCCC data —
 #       that comes later. This only proves the code runs.

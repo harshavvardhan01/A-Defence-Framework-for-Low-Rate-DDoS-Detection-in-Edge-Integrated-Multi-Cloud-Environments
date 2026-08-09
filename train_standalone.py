@@ -1,20 +1,16 @@
-# train_standalone.py
-#
-# WHAT: Trains a genuine standalone model on Node A's real
+#Trains a genuine standalone model on Node A's real
 #       data, with NO federation involved — pure local
 #       training, many epochs, no coordinator.
-# WHY:  This is the fair "single-agent" condition your
-#       supervisor requires — trained inside the SAME
+#  This is the fair "single-agent" condition— trained inside the SAME
 #       codebase and on the SAME data as the federated
-#       comparison, not pulled from a different paper's
-#       environment.
+#       comparison.
 
 import numpy as np
 from appcd.models import build_mlp
 from appcd.evaluation import compute_metrics
 
 N_FEATURES = 42
-EPOCHS = 30  # many local epochs, standing in for "trained alone, to convergence"
+EPOCHS = 30  
 
 print("Loading Node A's real data...")
 data = np.load("edge_agent/data/node_A.npz")
@@ -26,8 +22,7 @@ model = build_mlp(N_FEATURES)
 model.fit(X_train.astype(np.float32), y_train.astype(np.float32),
           epochs=EPOCHS, batch_size=256, verbose=1)
 
-# Evaluate on the SAME held-out validation set the federated
-# model was tested against
+
 predictions = (model.predict(X_val.astype(np.float32), verbose=0) >= 0.5).astype(int).flatten()
 metrics = compute_metrics(y_val, predictions)
 

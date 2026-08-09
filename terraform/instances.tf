@@ -1,9 +1,7 @@
-# instances.tf
-#
-# WHAT: The four real EC2 instances — coordinator + Node A +
+#  The four real EC2 instances — coordinator + Node A +
 #       Node B in the primary region, Node D alone in the
 #       secondary region.
-# WHY:  This grouping matches your experimental design: Node A
+# This grouping matches your experimental design: Node A
 #       and Node D share the same underlying BCCC data source
 #       (so their SEPARATION across regions demonstrates
 #       architecture, not data lineage), while Node B is a

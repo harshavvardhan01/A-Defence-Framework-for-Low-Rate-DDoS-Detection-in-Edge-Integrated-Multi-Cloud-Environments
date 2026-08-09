@@ -1,16 +1,5 @@
-# appcd/federation.py
-#
-# WHAT: The federated learning core — persistent per-node
+#  The federated learning core — persistent per-node
 #       trainers, FedBN-aware weight averaging.
-# WHY:  NodeTrainer is the v3 stability fix — one persistent
-#       model and optimizer per node, kept alive across rounds.
-#
-# FIXED THIS STEP: the old evaluate() returned a bare number.
-#       New evaluate() returns full metrics via compute_metrics.
-#       New evaluate_candidate() evaluates a CANDIDATE model on
-#       a THROWAWAY copy, never touching the real persistent
-#       model — this fixes a real bug where canary checks used
-#       to silently overwrite the node's actual training weights.
 
 import numpy as np
 import tensorflow as tf
@@ -115,9 +104,7 @@ class NodeTrainer:
     def evaluate_candidate(self, candidate_dense_weights, X, y):
         """
         Evaluates a CANDIDATE model — candidate Dense weights + this
-        node's OWN BatchNorm state — on a throwaway model. The real
-        self.model is never touched. THIS IS THE FIX for the bug
-        where canary checks used to overwrite live training weights.
+        node's OWN BatchNorm state — on a throwaway model.
         """
         shell = build_mlp(self.n_features)
         weights = [w.copy() for w in candidate_dense_weights]

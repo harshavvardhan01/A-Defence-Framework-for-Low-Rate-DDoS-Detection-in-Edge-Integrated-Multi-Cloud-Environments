@@ -1,9 +1,5 @@
-# coordinator/registry.py
-#
-# WHAT: Saves every promoted model as a versioned artefact.
-# WHY:  A registry is what makes rollback and audit possible in
-#       production. S3 mirroring is optional and fails
-#       gracefully — a flaky upload must never crash training.
+# Saves every promoted model as a versioned artefact.
+# A registry is what makes rollback and audit possible
 
 import json
 import logging

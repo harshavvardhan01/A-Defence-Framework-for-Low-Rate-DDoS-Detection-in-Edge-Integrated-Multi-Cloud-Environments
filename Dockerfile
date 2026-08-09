@@ -1,11 +1,9 @@
-# Dockerfile
-#
-# WHAT: Builds one image that can run EITHER the edge agent
+# Builds one image that can run EITHER the edge agent
 #       OR the coordinator — which service actually starts is
 #       decided by an environment variable, not by building
 #       two separate images. Simpler to maintain, one image to
 #       push, works for every node.
-# WHY:  Every edge node and the coordinator share the exact
+# Every edge node and the coordinator share the exact
 #       same appcd/ package underneath — building one shared
 #       image avoids duplicating that logic across multiple
 #       Dockerfiles.

@@ -1,8 +1,6 @@
-# variables.tf
-#
-# WHAT: Configurable values — instance size, your SSH key
+# Configurable values — instance size, your SSH key
 #       name, your IP for security group rules.
-# WHY:  Keeping these separate means changing them later
+# Keeping these separate means changing them later
 #       doesn't require touching the actual infrastructure
 #       logic — you only edit this one file.
 

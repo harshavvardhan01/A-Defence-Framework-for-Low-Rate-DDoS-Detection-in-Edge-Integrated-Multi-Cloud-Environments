@@ -1,6 +1,4 @@
-# iam.tf
-#
-# WHAT: Grants EC2 instances permission to write to S3,
+# Grants EC2 instances permission to write to S3,
 #       DynamoDB, and CloudWatch Logs via an attached
 #       instance profile -- no access keys ever embedded
 #       in the Docker image or environment variables.
